@@ -18,6 +18,7 @@ namespace Repository.Entities
         [Required(ErrorMessage = "Nationality is required")]
         public Nationality Nationality { get; set; }
 
+        [MinimumAge(16)]
         public DateTime BirthDate { get; set; }
 
         public int Points { get; set; }
