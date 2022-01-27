@@ -34,7 +34,16 @@ namespace APITechTest.Contollers
         public async Task<ActionResult<Player>> PostPlayer(Player player)
         {
             var newPlayer = await _PlayerRepository.Create(player);
-            return CreatedAtAction(nameof(GetPlayers), new { id = newPlayer.Id }, newPlayer);
+            return CreatedAtAction(nameof(GetPlayers), new 
+            { 
+                id = newPlayer.Id,
+                newPlayer.FirstName,
+                newPlayer.LastName,
+                newPlayer.Nationality,
+                newPlayer.BirthDate,
+                points = newPlayer.Points = 1200
+
+            },newPlayer);
         }
 
         // Added rest of CRUD actions for completion
