@@ -9,7 +9,7 @@ namespace Repository
     {
         public DbSet<Nationality> Nationalities { get; set; }
 
-        public DbSet<Player> Players { get; set; }
+        public DbSet<Entities.Player> Players { get; set; }
 
         public TennisContext(DbContextOptions<TennisContext> options, IConfiguration configuration)
             : base(options)
@@ -45,14 +45,14 @@ namespace Repository
                     );
             });
 
-            modelBuilder.Entity<Player>(entity =>
+            modelBuilder.Entity<Entities.Player>(entity =>
             {
                 entity.ToTable("Players", "dbo");
 
                 entity.HasOne(player => player.Nationality).WithMany();
 
                 entity.HasData(
-                    new Player
+                    new Entities.Player
                     {
                         Id = 1,
                         FirstName = "Rafael",
@@ -62,7 +62,7 @@ namespace Repository
                         Points = 4875,
                         Games = 1240
                     },
-                    new Player
+                    new Entities.Player
                     {
                         Id = 2,
                         FirstName = "Novak",
@@ -72,7 +72,7 @@ namespace Repository
                         Points = 11015,
                         Games = 1188
                     },
-                    new Player
+                    new Entities.Player
                     {
                         Id = 3,
                         FirstName = "Roberto Bautista",
@@ -82,7 +82,7 @@ namespace Repository
                         Points = 2385,
                         Games = 546
                     },
-                    new Player
+                    new Entities.Player
                     {
                         Id = 4,
                         FirstName = "Jan-Lennard",
@@ -92,7 +92,7 @@ namespace Repository
                         Points = 1149,
                         Games = 359
                     },
-                    new Player
+                    new Entities.Player
                     {
                         Id = 5,
                         FirstName = "Dusan",
@@ -102,7 +102,7 @@ namespace Repository
                         Points = 1346,
                         Games = 351
                     },
-                    new Player
+                    new Entities.Player
                     {
                         Id = 6,
                         FirstName = "Pablo Carreno",
@@ -112,7 +112,7 @@ namespace Repository
                         Points = 2305,
                         Games = 419
                     },
-                    new Player
+                    new Entities.Player
                     {
                         Id = 7,
                         FirstName = "Filip",
@@ -122,7 +122,7 @@ namespace Repository
                         Points = 1427,
                         Games = 206
                     },
-                    new Player
+                    new Entities.Player
                     {
                         Id = 8,
                         FirstName = "Asla",
@@ -132,7 +132,7 @@ namespace Repository
                         Points = 2553,
                         Games = 71
                     },
-                    new Player
+                    new Entities.Player
                     {
                         Id = 9,
                         FirstName = "Dominik",
@@ -142,7 +142,7 @@ namespace Repository
                         Points = 1096,
                         Games = 74
                     },
-                    new Player
+                    new Entities.Player
                     {
                         Id = 10,
                         FirstName = "Daniil",
@@ -152,7 +152,7 @@ namespace Repository
                         Points = 8935,
                         Games = 325
                     },
-                    new Player
+                    new Entities.Player
                     {
                         Id = 11,
                         FirstName = "Hubert",
@@ -162,7 +162,7 @@ namespace Repository
                         Points = 3336,
                         Games = 166
                     },
-                    new Player
+                    new Entities.Player
                     {
                         Id = 12,
                         FirstName = "Alexander",
@@ -172,7 +172,7 @@ namespace Repository
                         Points = 7970,
                         Games = 453
                     },
-                    new Player
+                    new Entities.Player
                     {
                         Id = 13,
                         FirstName = "Andrey",
@@ -182,7 +182,7 @@ namespace Repository
                         Points = 4785,
                         Games = 297
                     },
-                    new Player
+                    new Entities.Player
                     {
                         Id = 14,
                         FirstName = "Stefanos",
