@@ -29,6 +29,7 @@ namespace APITechTest
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<PlayerRepository, IPlayerRepository>();
+            services.AddScoped<NationalityRepository, INationalityRepository>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
