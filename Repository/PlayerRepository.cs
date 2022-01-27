@@ -20,6 +20,10 @@ namespace Repository
         public async Task<Player> Create(Player player)
         {
             _context.Players.Add(player);
+            if (_context.Players.Any(e => e.FirstName == player.FirstName && e.LastName == player.LastName))
+            {
+                return null;
+            }
             await _context.SaveChangesAsync();
 
             return player;
