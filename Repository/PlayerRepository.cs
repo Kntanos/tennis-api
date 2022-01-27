@@ -17,7 +17,7 @@ namespace Repository
             _context = context;
         }
 
-        public async Task<Entities.Player> Create(Entities.Player player)
+        public async Task<Player> Create(Player player)
         {
             _context.Players.Add(player);
             await _context.SaveChangesAsync();
@@ -33,17 +33,17 @@ namespace Repository
 
         }
 
-        public async Task<IEnumerable<Entities.Player>> Get()
+        public async Task<IEnumerable<Player>> Get()
         {
             return await _context.Players.ToListAsync();
         }
 
-        public async Task<Entities.Player> Get(int id)
+        public async Task<Player> Get(int id)
         {
             return await _context.Players.FindAsync(id);
         }
 
-        public async Task Update(Entities.Player player)
+        public async Task Update(Player player)
         {
             _context.Entry(player).State = EntityState.Modified;
             await _context.SaveChangesAsync();
