@@ -22,7 +22,7 @@ namespace Repository
             _context.Players.Add(player);
             if (_context.Players.Any(e => e.FirstName == player.FirstName && e.LastName == player.LastName))
             {
-                return null;
+                throw new ArgumentException("Player already exists");
             }
             await _context.SaveChangesAsync();
 

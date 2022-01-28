@@ -13,10 +13,10 @@ namespace Repository.Entities
 
         [Required(ErrorMessage = "Last Name is required")]
         public string LastName { get; set; }
-
+        
         public int NationalityId { get; set; }
 
-        [Required(ErrorMessage = "Nationality is required")]
+        //[Required(ErrorMessage = "Nationality is required")]
         public Nationality Nationality { get; set; }
 
         [MinimumAge(16)]

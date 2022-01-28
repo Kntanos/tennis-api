@@ -27,21 +27,26 @@ namespace APITechTest.Contollers
         [HttpGet("{id}")]
         public async Task<ActionResult<Player>> GetPlayers(int id)
         {
+            if (GetPlayers(id) is null)
+            {
+                return NotFound();
+            }
+
             return await _PlayerRepository.Get(id);
         }
 
         [HttpPost]
-        public async Task<ActionResult<Player>> PostPlayer(Player player)
+        public async Task<ActionResult<Player>> AddPlayer(Player player)
         {
             var newPlayer = await _PlayerRepository.Create(player);
             return CreatedAtAction(nameof(GetPlayers), new 
             { 
-                id = newPlayer.Id,
                 newPlayer.FirstName,
                 newPlayer.LastName,
                 newPlayer.Nationality,
                 newPlayer.BirthDate,
-                points = newPlayer.Points = 1200
+                points = newPlayer.Points = 1200,
+                newPlayer.Games
 
             },newPlayer);
         }
