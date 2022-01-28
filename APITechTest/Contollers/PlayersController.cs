@@ -27,11 +27,6 @@ namespace APITechTest.Contollers
         [HttpGet("{id}")]
         public async Task<ActionResult<Player>> GetPlayers(int id)
         {
-            if (GetPlayers(id) is null)
-            {
-                return NotFound();
-            }
-
             return await _PlayerRepository.Get(id);
         }
 
