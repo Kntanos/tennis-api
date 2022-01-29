@@ -41,7 +41,7 @@ namespace Repository
 
         public async Task<IEnumerable<Player>> Get()
         {
-            return await _context.Players.ToListAsync();
+            return await _context.Players.Include(b => b.Nationality).ToListAsync();
         }
 
         public async Task<Player> Get(int id)
