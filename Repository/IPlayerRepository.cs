@@ -9,13 +9,10 @@ namespace Repository
 {
     public interface PlayerRepository
     {
-        object Player { get; set; }
-
-        Task<IEnumerable<Entities.Player>> Get(string firstname);
+        Task<IEnumerable<Entities.Player>> Get();
         Task<Entities.Player> Get(int id);
         Task<Entities.Player> Create(Entities.Player player);
         Task Update(Entities.Player player);
         Task Delete(int id);
-        Task<IEnumerable<Player>> Get();
     }
 }

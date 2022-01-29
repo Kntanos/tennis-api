@@ -17,8 +17,6 @@ namespace Repository
             _context = context;
         }
 
-        object PlayerRepository.Player { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
         public async Task<Player> Create(Player player)
         {
             _context.Players.Add(player);
@@ -53,11 +51,6 @@ namespace Repository
         {
             _context.Entry(player).State = EntityState.Modified;
             await _context.SaveChangesAsync();
-        }
-
-        Task<IEnumerable<Player>> PlayerRepository.Get(string firstname)
-        {
-            throw new NotImplementedException();
         }
     }
 }
